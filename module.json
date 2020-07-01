@@ -13,14 +13,18 @@
 
 	"hideDefaultCommands": true,
 	"hideDefaultParameters": [
-		"autoAdd",
-		"protocol"
+		"protocol",
+		"autoAdd"
 	],
 	
 	"defaults": {
 		"baseAddress":"http://127.0.0.1:8080/",
 		"autoAdd": false,
-		"protocol":"XML"
+		"protocol":"XML",
+		"authentication":
+		{
+			"enabled":true
+		}
 	},
 	
 	"parameters": {
@@ -31,17 +35,6 @@
 	],
 	
 	"values": {
-		"Is Playing":
-		{
-			"type":"Boolean",
-			"default":false,
-		},
-
-		"Loop":
-		{
-			"type":"Boolean",
-			"default":false
-		}
 	},
 	
 	"commands": {
@@ -106,7 +99,7 @@
 					"type": "Float",
 					"default": 0.5, 
 					"min":0,
-					"max":1,
+					"max":1.25,
 					"useForMapping": true
 				}
 			}
