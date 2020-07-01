@@ -31,9 +31,14 @@ function next()
 	sendCommand("pl_next");
 }
 
+function toggleLoop()
+{
+	sendCommand("pl_loop");
+}
+
 function setVolume(value)
 {
-	script.log("Set volume " + value);
+	sendCommand("volume&val="+parseInt(value*255));
 }
 
 function sendCommand(command)
