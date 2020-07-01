@@ -1,0 +1,115 @@
+{
+	"name": "VLC",
+	"type": "HTTP",
+	"path": "Software",
+	
+	"version": "1.0.0",
+	"description": "Control VLC through HTTP",
+	"downloadURL": "https://github.com/benkuper/VLC-Chataigne-module/archive/master.zip",
+	
+	"hasInput": true,
+	"hasOutput": true, 
+
+	"hideDefaultCommands": true,
+	"hideDefaultParameters": [
+		"autoAdd",
+		"protocol"
+	],
+	
+	"defaults": {
+		"baseAddress":"http://127.0.0.1:8080/",
+		"autoAdd": false,
+		"protocol":"XML"
+	},
+	
+	"parameters": {
+	},
+	
+	"scripts": [
+		"VLC.js"
+	],
+	
+	"values": {
+		"Is Playing":
+		{
+			"type":"Boolean",
+			"default":false,
+		},
+
+		"Loop":
+		{
+			"type":"Boolean",
+			"default":false
+		}
+	},
+	
+	"commands": {
+		
+		"Play":
+		{
+			"menu":"",
+			"callback":"play"
+		},
+
+		"Toggle Play/Pause":
+		{
+			"menu":"",
+			"callback":"pause"
+		},
+		"Stop":
+		{
+			"menu":"",
+			"callback":"stop"
+		},
+
+		"Previous":
+		{
+			"menu": "",
+			"callback": "previous",
+			"parameters": {
+			}
+		},
+
+		"Next":
+		{
+			"menu": "",
+			"callback": "next",
+			"parameters": {
+			}
+		},
+
+		"Play File":
+		{
+			"menu": "",
+			"callback": "playFile",
+			"parameters": {
+				"File": {
+					"type": "File"
+				}
+			}
+		},
+
+		"Toggle Loop":
+		{
+			"menu":"",
+			"callback":"toggleLoop"
+		},
+
+		"Set Volume":
+		{
+			"menu": "",
+			"callback": "setVolume",
+
+			"parameters": {
+				"Volume": {
+					"type": "Float",
+					"default": 0.5, 
+					"min":0,
+					"max":1,
+					"useForMapping": true
+				}
+			}
+		}
+
+	}
+}
