@@ -89,6 +89,24 @@
 			"callback":"toggleLoop"
 		},
 
+		"Toggle Fullscreen":
+		{
+			"menu":"",
+			"callback":"toogleFullscreen"
+		},
+
+		"Seek to":
+		{
+			"menu":"",
+			"callback":"seekTo",
+			"parameters": {
+				"Seek": {
+					"type": "String",
+					"default": "0"
+				}
+			}
+		},
+
 		"Set Volume":
 		{
 			"menu": "",
