@@ -36,12 +36,20 @@ function toggleLoop()
 	sendCommand("pl_loop");
 }
 
+function toogleFullscreen() {
+	sendCommand("fullscreen");
+}
+
+function seekTo(value) {
+	sendCommand("seek&val="+value);
+}
+
 function setVolume(value)
 {
 	sendCommand("volume&val="+parseInt(value*255));
 }
 
-function sendCommand(command)
+function 	sendCommand(command)
 {
 	local.sendGET("requests/status.xml?command="+command);
 }
