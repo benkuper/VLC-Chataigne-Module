@@ -1,10 +1,56 @@
+function updateData() { //a mettre dans dataEvent ? fonction qui s'execute des qu'on recoit un retour sur une autre commande
+	local.sendGET("requests/status.xml");
+}
+
+function dataEvent(data, requestURL) 
+{
+
+	for(i = 0; i < data.split(">").length; i++) {
+		if(data.split(">")[i].split("<")[1] == "/fullscreen") {
+			local.values.fullscreen.set(data.split(">")[i].split("<")[0]);
+		}
+
+		if(data.split(">")[i].split("<")[1] == "/time") {
+			local.values.time.set(data.split(">")[i].split("<")[0]);
+		}
+		
+		if(data.split(">")[i].split("<")[1] == "/length") {
+			local.values.length.set(data.split(">")[i].split("<")[0]);
+		}
+		
+		if(data.split(">")[i].split("<")[1] == "/volume") {
+			local.values.volume.set(data.split(">")[i].split("<")[0]);
+		}
+
+		if(data.split(">")[i].split("<")[1] == "/loop") {
+			if(data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("true"); }
+			else { local.values.loop.set("false"); }
+		}
+
+		if(data.split(">")[i].split("<")[1] == "/repeat") {
+			if(data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("repeat"); }
+		}
+
+		if(data.split(">")[i].split("<")[1] == "info name='filename'") {
+			local.values.videoName.set(data.split(">")[i+1].split("<")[0]);
+		}
+
+		if(data.split(">")[i].split("<")[1] == "/state") {
+			local.values.state.set(data.split(">")[i].split("<")[0]);
+		}
+
+	}
+	
+	
+}
+
 function play()
 {
 	sendCommand("pl_play");
 }
 
 function pause()
-{
+{ 
 	sendCommand("pl_pause");
 }
 
@@ -23,7 +69,6 @@ function playFile(file)
 function previous()
 {
 	sendCommand("pl_previous");
-
 }
 
 function next()
@@ -49,7 +94,7 @@ function setVolume(value)
 	sendCommand("volume&val="+parseInt(value*255));
 }
 
-function 	sendCommand(command)
+function sendCommand(command)
 {
 	local.sendGET("requests/status.xml?command="+command);
 }
