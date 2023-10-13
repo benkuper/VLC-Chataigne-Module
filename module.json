@@ -3,7 +3,7 @@
 	"type": "HTTP",
 	"path": "Software",
 	
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Control VLC through HTTP. This module requires at least version 1.7.3b1 of Chataigne ! If you're having troubles, please click the link below and see how to set it up.",
 	"url":"https://github.com/benkuper/VLC-Chataigne-Module",
 	"downloadURL": "https://github.com/benkuper/VLC-Chataigne-module/archive/master.zip",
@@ -34,11 +34,46 @@
 		"VLC.js"
 	],
 	
-	"values": {
+	"values":
+	{
+		"Fullscreen":{
+			"type": "String",
+			"readOnly": true
+		},
+		"Time":{
+			"type": "String",
+			"readOnly": true
+		},
+		"Length": {
+			"type": "String",
+			"readOnly": true
+		},
+		"Volume":{
+			"type": "String",
+			"readOnly": true
+		},
+		"Loop":{
+			"type": "String",
+			"readOnly": true
+		},
+		"Video name": {
+			"type": "String",
+			"readOnly": true
+		},
+		"State": {
+			"type": "String",
+			"readOnly": true
+		}
 	},
 	
 	"commands": {
 		
+		"Update status":
+		{
+			"menu":"",
+			"callback":"updateData"
+		},
+
 		"Play":
 		{
 			"menu":"",
@@ -50,6 +85,7 @@
 			"menu":"",
 			"callback":"pause"
 		},
+
 		"Stop":
 		{
 			"menu":"",
