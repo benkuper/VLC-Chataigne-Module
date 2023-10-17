@@ -3,7 +3,7 @@
 	"type": "HTTP",
 	"path": "Software",
 	
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "Control VLC through HTTP. This module requires at least version 1.7.3b1 of Chataigne ! If you're having troubles, please click the link below and see how to set it up.",
 	"url":"https://github.com/benkuper/VLC-Chataigne-Module",
 	"downloadURL": "https://github.com/benkuper/VLC-Chataigne-module/archive/master.zip",
