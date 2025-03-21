@@ -1,3 +1,13 @@
+function init() {
+	script.setUpdateRate(1);
+}
+
+function update() {
+	if (local.parameters.autoUpdateState.get()) {
+		updateData();
+	}
+}
+
 function updateData() { //a mettre dans dataEvent ? fonction qui s'execute des qu'on recoit un retour sur une autre commande
 	local.sendGET("requests/status.xml");
 }
