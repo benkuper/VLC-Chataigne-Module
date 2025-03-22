@@ -28,6 +28,7 @@
 	},
 	
 	"parameters": {
+		"Auto Update State": {"type": "Boolean"}
 	},
 	
 	"scripts": [
