@@ -126,6 +126,12 @@
 			"callback":"toggleLoop"
 		},
 
+		"Toggle Repeat":
+		{
+			"menu":"",
+			"callback":"toggleRepeat"
+		},
+
 		"Toggle Fullscreen":
 		{
 			"menu":"",

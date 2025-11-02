@@ -12,99 +12,94 @@ function updateData() { //a mettre dans dataEvent ? fonction qui s'execute des q
 	local.sendGET("requests/status.xml");
 }
 
-function dataEvent(data, requestURL) 
-{
+function dataEvent(data, requestURL) {
 
-	for(i = 0; i < data.split(">").length; i++) {
-		if(data.split(">")[i].split("<")[1] == "/fullscreen") {
+	for (i = 0; i < data.split(">").length; i++) {
+		if (data.split(">")[i].split("<")[1] == "/fullscreen") {
 			local.values.fullscreen.set(data.split(">")[i].split("<")[0]);
 		}
 
-		if(data.split(">")[i].split("<")[1] == "/time") {
+		if (data.split(">")[i].split("<")[1] == "/time") {
 			local.values.time.set(data.split(">")[i].split("<")[0]);
 		}
-		
-		if(data.split(">")[i].split("<")[1] == "/length") {
+
+		if (data.split(">")[i].split("<")[1] == "/length") {
 			local.values.length.set(data.split(">")[i].split("<")[0]);
 		}
-		
-		if(data.split(">")[i].split("<")[1] == "/volume") {
+
+		if (data.split(">")[i].split("<")[1] == "/volume") {
 			local.values.volume.set(data.split(">")[i].split("<")[0]);
 		}
 
-		if(data.split(">")[i].split("<")[1] == "/loop") {
-			if(data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("true"); }
+		if (data.split(">")[i].split("<")[1] == "/loop") {
+			if (data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("true"); }
 			else { local.values.loop.set("false"); }
 		}
 
-		if(data.split(">")[i].split("<")[1] == "/repeat") {
-			if(data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("repeat"); }
+		if (data.split(">")[i].split("<")[1] == "/repeat") {
+			if (data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("repeat"); }
 		}
 
-		if(data.split(">")[i].split("<")[1] == "info name='filename'") {
-			local.values.videoName.set(data.split(">")[i+1].split("<")[0]);
+		if (data.split(">")[i].split("<")[1] == "info name='filename'") {
+			local.values.videoName.set(data.split(">")[i + 1].split("<")[0]);
 		}
 
-		if(data.split(">")[i].split("<")[1] == "/state") {
+		if (data.split(">")[i].split("<")[1] == "/state") {
 			local.values.state.set(data.split(">")[i].split("<")[0]);
 		}
 
 	}
-	
-	
+
+
 }
 
-function play()
-{
+function play() {
 	sendCommand("pl_play");
 }
 
-function pause()
-{ 
+function pause() {
 	sendCommand("pl_pause");
 }
 
-function stop()
-{
+function stop() {
 	sendCommand("pl_stop");
 }
 
-function playFile(file)
-{
-	file = "file:///"+file;
-	var f = file.replace(":","%3A").replace("/","%2D").replace(" ","%20");
-	sendCommand("in_play&input="+file);
+function playFile(file) {
+	file = "file:///" + file;
+	var f = file.replace(":", "%3A").replace("/", "%2D").replace(" ", "%20");
+	sendCommand("in_play&input=" + file);
 }
 
-function previous()
-{
+function previous() {
 	sendCommand("pl_previous");
 }
 
-function next()
-{
+function next() {
 	sendCommand("pl_next");
 }
 
-function toggleLoop()
-{
+function toggleLoop() {
 	sendCommand("pl_loop");
 }
+
+function toggleRepeat() {
+	sendCommand("pl_repeat");
+}
+
 
 function toogleFullscreen() {
 	sendCommand("fullscreen");
 }
 
 function seekTo(value) {
-	sendCommand("seek&val="+value);
+	sendCommand("seek&val=" + value);
 }
 
-function setVolume(value)
-{
-	sendCommand("volume&val="+parseInt(value*255));
+function setVolume(value) {
+	sendCommand("volume&val=" + parseInt(value * 255));
 }
 
-function sendCommand(command)
-{
-	local.sendGET("requests/status.xml?command="+command);
+function sendCommand(command) {
+	local.sendGET("requests/status.xml?command=" + command);
 }
