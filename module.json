@@ -68,6 +68,10 @@
 		"State": {
 			"type": "String",
 			"readOnly": true
+		},
+		"Position": {
+			"type": "String",
+			"readOnly": true
 		}
 	},
 	

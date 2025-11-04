@@ -49,6 +49,10 @@ function dataEvent(data, requestURL) {
 			local.values.state.set(data.split(">")[i].split("<")[0]);
 		}
 
+		if (data.split(">")[i].split("<")[1] == "/position") {
+			local.values.position.set(data.split(">")[i].split("<")[0]);
+		}
+
 	}
 
 
