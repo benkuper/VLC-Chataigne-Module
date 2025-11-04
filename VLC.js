@@ -37,7 +37,8 @@ function dataEvent(data, requestURL) {
 		}
 
 		if (data.split(">")[i].split("<")[1] == "/repeat") {
-			if (data.split(">")[i].split("<")[0] == "true") { local.values.loop.set("repeat"); }
+			if (data.split(">")[i].split("<")[0] == "true") { local.values.repeat.set("true"); }
+			else { local.values.repeat.set("false"); }
 		}
 
 		if (data.split(">")[i].split("<")[1] == "info name='filename'") {

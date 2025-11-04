@@ -57,6 +57,10 @@
 			"type": "String",
 			"readOnly": true
 		},
+		"Repeat":{
+			"type": "String",
+			"readOnly": true
+		},
 		"Video name": {
 			"type": "String",
 			"readOnly": true
