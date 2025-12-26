@@ -116,6 +116,28 @@
 			"parameters": {
 			}
 		},
+		
+		"Play Filename":
+		{
+			"menu": "",
+			"callback": "playFilename",
+			"parameters": {
+				"Filename": {
+					"type": "String"
+				}
+			}
+		},
+		
+		"Play Item by Id":
+		{
+			"menu": "",
+			"callback": "playId",
+			"parameters": {
+				"Id": {
+					"type": "Integer"
+				}
+			}
+		},
 
 		"Play File":
 		{
