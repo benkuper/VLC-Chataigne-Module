@@ -89,9 +89,10 @@ function stop() {
 }
 
 function playFile(file) {
-	file = "file:///" + file;
-	var f = file.replace(":", "%3A").replace("/", "%2D").replace(" ", "%20");
-	sendCommand("in_play&input=" + file);
+	// Absolute Unix paths already start with the slash required by a file URI.
+	// Windows drive paths do not, so they still need the three-slash prefix.
+	var fileURL = file.substring(0, 1) == "/" ? "file://" + file : "file:///" + file;
+	sendCommand("in_play&input=" + fileURL);
 }
 
 function playId(id) {
